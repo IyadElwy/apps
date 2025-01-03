@@ -1,0 +1,21 @@
+name: portfolio
+
+services:
+  api:
+    build: ./
+    image: portfolio-api-image
+    ports:
+      - "5003:5003"
+    networks:
+      - portfolio-network
+
+  vm:
+    build: ./vm-container/
+    image: portfolio-vm-image
+    networks:
+      - portfolio-network
+
+
+networks:
+  portfolio-network:
+    driver: bridge
