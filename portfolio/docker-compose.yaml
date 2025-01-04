@@ -7,15 +7,18 @@ services:
     ports:
       - "5003:5003"
     networks:
-      - portfolio-network
-
+      - portfolio-network-external
+      - portfolio-network-internal
   vm:
     build: ./vm-container/
     image: portfolio-vm-image
     networks:
-      - portfolio-network
+      - portfolio-network-internal
 
 
 networks:
-  portfolio-network:
+  portfolio-network-external:
     driver: bridge
+  portfolio-network-internal:
+    driver: bridge
+    internal: true
