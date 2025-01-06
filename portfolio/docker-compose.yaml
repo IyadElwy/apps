@@ -14,7 +14,8 @@ services:
     image: portfolio-vm-image
     networks:
       - portfolio-network-internal
-
+    volumes:
+      - /mnt/storage-server0/sda3/portfolio/data/db.sqlite:/appdata/db.sqlite
 
 networks:
   portfolio-network-external:
