@@ -72,19 +72,19 @@ if args.output:
             sys.exit(1)
         select_statement += f"{val}, "
     select_statement = select_statement[:-2]  # remove last comma and space
-    select_statement += " FROM Movies WHERE title=?"
+    select_statement += " FROM Movies WHERE normalized_title=?"
 else:
     output_variables = "id,title,year,rated,released,runtime,genre,director,writer,actors,plot,language".split(
         ","
     )
-    select_statement = "SELECT * FROM MOVIES WHERE title=?"
+    select_statement = "SELECT * FROM MOVIES WHERE normalized_title=?"
 
 
 con = sqlite3.connect("/appdata/db.sqlite")
 cur = con.cursor()
 res = cur.execute(
     select_statement,
-    (args.title,),
+    (args.title.lower().replace(" ", ""),),
 )
 res = res.fetchone()
 con.close()
@@ -92,7 +92,7 @@ con.close()
 
 if res is None:
     print(
-        f'Movie with title "{args.title}" not found in Database. Running Dag to extract, transform and then load movie into Database. Check again in a few seconds.'
+        f'Movie with title "{args.title}" not found in Database. Running Dag to extract, transform and then load movie into Database. Check again in a minute.'
     )
     res_dag_req = requests.post(
         "http://portfolio-api-1:5003/initdag",
