@@ -1,4 +1,5 @@
 import requests
+from cachetools import TTLCache
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -14,6 +15,7 @@ class Movie(BaseModel):
 
 
 app = FastAPI()
+cache = TTLCache(maxsize=15, ttl=180)
 
 
 @app.post("/cmd")
@@ -30,6 +32,10 @@ def cmd(command_body: CommandBody):
 
 @app.post("/initdag")
 def init_dag(movie: Movie):
+    cache_result = cache.get(movie.title)
+    if cache_result:
+        return {"result": "movie request is already being processed"}
+    cache[movie.title] = "processing"
     res = requests.post(
         "https://airflow.iyadelwy.xyz/api/v1/dags/movie_retriever_dag/dagRuns",
         headers={"Content-Type": "application/json"},

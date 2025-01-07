@@ -1,6 +1,6 @@
 FROM python:3.12-bookworm
 
-RUN ["pip", "install", "fastapi[standard]", "requests"]
+RUN ["pip", "install", "fastapi[standard]", "requests", "cachetools"]
 
 WORKDIR /app
 
