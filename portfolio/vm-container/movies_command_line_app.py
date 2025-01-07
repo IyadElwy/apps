@@ -8,16 +8,8 @@ from requests.exceptions import HTTPError
 
 parser = argparse.ArgumentParser(
     prog="Movie Command-Line Utility",
-    description='Using this tool you will be able to traverse movies \
-        people before you have searched for, retrieve data about\
-            newer movies and more. You can specify the title of the movie. The title needs to be \
-     spelled correctly. If the title includes spaces use double quotes Ex. -t "Fight Club".\
-         If it exists then the data can be viewed and changed using the -o and -f flags but if not, an airflow dag will \
-            be triggered to extract, transform and load the data for you to see. If the movie cannot be found by the dags then\
-                check the spelling of the movie.',
-    epilog='If you are interested in how this system works, how you are able to freely access\
-        a command line and run this app view the "Portfolio Projects" section down bellow to access \
-            the project\'s GitHub Page.',
+    description="""Using this tool you will be able to retrieve data about movies.\n\n""",
+    epilog='Check out the "Portfolio Projects" section to access the project\'sGitHub Page.',
 )
 
 
@@ -25,14 +17,12 @@ parser.add_argument(
     "-t",
     "--title",
     required=True,
-    help='The title of the movie. Ex. movie -t "Fight Club"',
+    help='Ex. movies -t "Fight Club"',
 )
 parser.add_argument(
     "-o",
     "--output",
-    help='Output the data you wish to see about the specific movie.Output must be a comma seperated \
-        string of values (no space in between).\
-                Ex. movies -o "id,title,year,rated,released,runtime,genre,director,writer,actors,plot,language"',
+    help="""Comma separated string of values. Ex. movies -o "id,title,year,rated,released,runtime,genre,director,writer,actors,plot,language""",
 )
 
 parser.add_argument(
@@ -40,7 +30,7 @@ parser.add_argument(
     "--format",
     choices=["table", "tuple"],
     default="table",
-    help='Format of the output. Choices are between "table" and "tuple".',
+    help="Format of the output.",
 )
 
 args = parser.parse_args()
@@ -79,7 +69,7 @@ else:
     output_variables = "id,title,year,rated,released,runtime,genre,director,writer,actors,plot,language".split(
         ","
     )
-    select_statement = "SELECT * FROM MOVIES WHERE normalized_title=?"
+    select_statement = "SELECT id, title, year, rated, released, runtime, genre, director, writer, actors, plot, language FROM MOVIES WHERE normalized_title=?"
 
 
 con = sqlite3.connect("/appdata/db.sqlite")
