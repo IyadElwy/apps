@@ -1,7 +1,7 @@
 CREATE TABLE Movies(
     id INTEGER PRIMARY KEY,
-    normalized_title TEXT,
-    title TEXT,
+    normalized_title TEXT UNIQUE,
+    title TEXT UNIQUE,
     year TEXT,
     rated TEXT,
     released TEXT,
