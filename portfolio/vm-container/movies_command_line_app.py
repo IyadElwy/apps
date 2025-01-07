@@ -25,7 +25,7 @@ parser.add_argument(
     "-t",
     "--title",
     required=True,
-    help='The title of the movie. Ex. movie -t "Fight Clube"',
+    help='The title of the movie. Ex. movie -t "Fight Club"',
 )
 parser.add_argument(
     "-o",
@@ -70,6 +70,7 @@ if args.output:
     select_statement = "SELECT "
     for val in output_variables:
         if val not in allowed_output_variables:
+            print(f'"{val}" is not a valid option')
             sys.exit(1)
         select_statement += f"{val}, "
     select_statement = select_statement[:-2]  # remove last comma and space
