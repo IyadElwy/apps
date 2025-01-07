@@ -24,6 +24,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "-t",
     "--title",
+    required=True,
     help='The title of the movie. Ex. movie -t "Fight Clube"',
 )
 parser.add_argument(
