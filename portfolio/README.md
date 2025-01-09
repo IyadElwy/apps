@@ -77,4 +77,4 @@ FastAPI Logs: Loki also captures logs from the FastAPI server, allowing you to m
 
 
 
-At the moment the project runs on one machine with the potential for horizontal scaling using container orchestrators like docker swarm or K8s and reverse proxies like ngnix for load balancing.
+`At the moment the project runs on one machine with the potential for horizontal scaling using container orchestrators like docker swarm or K8s and reverse proxies like ngnix for load balancing.`
