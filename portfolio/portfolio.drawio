@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.4">
   <diagram name="Page-1" id="oI_tLABPs_gmq6w3TGii">
-    <mxGraphModel dx="6185" dy="2263" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="6324" dy="2100" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,12 +8,12 @@
           <mxGeometry x="-2904" y="-383" width="40" height="85" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-6" value="Home Cluster" style="swimlane;whiteSpace=wrap;html=1;fillColor=#66B2FF;" parent="1" vertex="1">
-          <mxGeometry x="-2306" y="-758" width="1198" height="1019" as="geometry">
+          <mxGeometry x="-2306" y="-758" width="1198" height="1229" as="geometry">
             <mxRectangle x="-2213" y="-753" width="130" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-16" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.patternFillRect;fillStyle=diag;step=5;fillStrokeWidth=0.2;fillStrokeColor=#dddddd;fillColor=#99FF99;" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1">
-          <mxGeometry x="1.5" y="24" width="1073" height="993" as="geometry" />
+          <mxGeometry x="1.5" y="24" width="1073" height="1203" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-7" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.desktop_pc;" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1">
           <mxGeometry x="9" y="36" width="40" height="72" as="geometry" />
@@ -52,16 +52,16 @@
           <mxGeometry x="37" y="34" width="66" height="66" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-78" value="" style="group" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1" connectable="0">
-          <mxGeometry x="40" y="714" width="1001" height="289" as="geometry" />
+          <mxGeometry x="40" y="714" width="1001" height="497" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-75" value="" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-78" vertex="1">
-          <mxGeometry width="1001.0000000000001" height="289" as="geometry" />
+          <mxGeometry x="339" width="662" height="497" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-76" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/ionicons-fill-vol-2/512/logo-docker-128.png" parent="z4DHmxEM3Tl0a3bXThNu-78" vertex="1">
-          <mxGeometry x="22.647058823529413" y="15" width="28" height="28" as="geometry" />
+          <mxGeometry x="368.9970588235294" y="11" width="28" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="z4DHmxEM3Tl0a3bXThNu-77" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;VM Container [&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;The container, responsible for running the actual commands&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;]&lt;/span&gt;&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Purpose&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: This container runs a command-line tool for interacting with movie data. It is designed to allow users to search for movies, retrieve data, and execute related commands.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Application Structure&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The core application logic is located in &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/app&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; and &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/appdata&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;. It uses FastAPI for handling API requests and provides a script (&lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;movies_command_line_app.py&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) to interact with the movie data.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Restricted User&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The container creates a user named &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;narrator&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, who has a restricted environment to enhance security. This user can only run a limited set of commands, preventing access to unnecessary system utilities.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Command-Line Interface&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The container includes a command-line interface (&lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;movies.sh&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) that is executable by the &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;narrator&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; user. This script is used to interact with the movie data in a controlled manner.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Security&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;narrator&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; user is restricted to a &quot;sandboxed&quot; shell (rbash), which limits its capabilities and ensures that it can only execute specific commands. This is important for preventing any unauthorized or dangerous actions within the container.&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="z4DHmxEM3Tl0a3bXThNu-78" vertex="1">
-          <mxGeometry x="22.65" y="39" width="958.35" height="239" as="geometry" />
+        <mxCell id="z4DHmxEM3Tl0a3bXThNu-77" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;VM Container [&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;The container, responsible for running the actual commands&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;]&lt;/span&gt;&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Purpose&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: This container runs a command-line tool for interacting with movie data. It is designed to allow users to search for movies, retrieve data, and execute related commands.&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Application Structure&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The core application logic is located in &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/app&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; and &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/appdata&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;. It uses FastAPI for handling API requests and provides a script (&lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;movies_command_line_app.py&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) to interact with the movie data.&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Restricted User&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The container creates a user named &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;narrator&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, who has a restricted environment to enhance security. This user can only run a limited set of commands, preventing access to unnecessary system utilities.&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Command-Line Interface&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The container includes a command-line interface (&lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;movies.sh&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) that is executable by the &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;narrator&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; user. This script is used to interact with the movie data in a controlled manner.&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Security&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: The &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;narrator&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; user is restricted to a &quot;sandboxed&quot; shell (rbash), which limits its capabilities and ensures that it can only execute specific commands. This is important for preventing any unauthorized or dangerous actions within the container.&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="z4DHmxEM3Tl0a3bXThNu-78" vertex="1">
+          <mxGeometry x="369" y="39" width="612" height="422" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-86" value="" style="group" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1" connectable="0">
           <mxGeometry x="792" y="592" width="257" height="110" as="geometry" />
@@ -78,7 +78,7 @@
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-80" value="Paths" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-86" vertex="1">
           <mxGeometry x="-213" y="43" width="453" height="51.309734513274336" as="geometry" />
         </mxCell>
-        <mxCell id="z4DHmxEM3Tl0a3bXThNu-81" value="/app/temp_data:/mnt/storage-server0/sda3/airflow/tmp (airflow)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-80" vertex="1">
+        <mxCell id="z4DHmxEM3Tl0a3bXThNu-81" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;/app/temp_data (airflow)&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-80" vertex="1">
           <mxGeometry y="26" width="453" height="25.309734513274336" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-87" value="" style="group" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1" connectable="0">
@@ -96,14 +96,14 @@
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-91" value="Paths" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-87" vertex="1">
           <mxGeometry x="31.996291793313063" y="29" width="525.42" height="79" as="geometry" />
         </mxCell>
-        <mxCell id="z4DHmxEM3Tl0a3bXThNu-92" value="/mnt/storage-server0/sda3/portfolio/data/db.sqlite:/app/appdata/db.sqlite (airflow)&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;/mnt/storage-server0/sda3/portfolio/data/db.sqlite:/appdata/db.sqlite (app)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-91" vertex="1">
+        <mxCell id="z4DHmxEM3Tl0a3bXThNu-92" value="/app/appdata/db.sqlite (airflow)&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;/appdata/db.sqlite (app)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-91" vertex="1">
           <mxGeometry y="26" width="525.42" height="49" as="geometry" />
         </mxCell>
         <mxCell id="DdvUe85uAlIGci8yTlet-13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="z4DHmxEM3Tl0a3bXThNu-91" vertex="1">
           <mxGeometry y="75" width="525.42" height="4" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-17" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.patternFillRect;fillStyle=diagRev;step=5;fillStrokeWidth=0.2;fillStrokeColor=#dddddd;fillColor=#FF6666;" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1">
-          <mxGeometry x="1072.5" y="24" width="125" height="995" as="geometry" />
+          <mxGeometry x="1072.5" y="24" width="125" height="1205" as="geometry" />
         </mxCell>
         <mxCell id="Yx0Jhr5HA7XJ-aeyqh2g-1" value="node #1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1">
           <mxGeometry x="1074.5" y="115" width="61" height="26" as="geometry" />
@@ -127,7 +127,7 @@
           <mxGeometry x="48" y="4" width="23" height="24" as="geometry" />
         </mxCell>
         <mxCell id="Yx0Jhr5HA7XJ-aeyqh2g-10" value="" style="group" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1" connectable="0">
-          <mxGeometry x="220" y="419" width="232" height="132" as="geometry" />
+          <mxGeometry x="223" y="425" width="232" height="132" as="geometry" />
         </mxCell>
         <mxCell id="Yx0Jhr5HA7XJ-aeyqh2g-11" value="Docker Bridged &lt;b&gt;Internal&lt;/b&gt;&amp;nbsp;&lt;div&gt;Network&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;b&gt;portfolio-network-internal&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="Yx0Jhr5HA7XJ-aeyqh2g-10" vertex="1">
           <mxGeometry width="232" height="132" as="geometry" />
@@ -145,10 +145,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="Yx0Jhr5HA7XJ-aeyqh2g-16" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;entryX=0.337;entryY=0.431;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FF0000;" parent="z4DHmxEM3Tl0a3bXThNu-6" source="z4DHmxEM3Tl0a3bXThNu-53" target="z4DHmxEM3Tl0a3bXThNu-16" edge="1">
+        <mxCell id="Yx0Jhr5HA7XJ-aeyqh2g-16" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF0000;" parent="z4DHmxEM3Tl0a3bXThNu-6" source="z4DHmxEM3Tl0a3bXThNu-53" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="686" y="458" as="sourcePoint" />
-            <mxPoint x="736" y="408" as="targetPoint" />
+            <mxPoint x="363" y="461" as="targetPoint" />
             <Array as="points">
               <mxPoint x="412" y="408" />
               <mxPoint x="363" y="408" />
@@ -234,6 +234,74 @@
             <mxPoint x="768" y="357.0000000000001" as="sourcePoint" />
             <mxPoint x="1032" y="657" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-1" value="&lt;h1 style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-top: 0px;&quot;&gt;&lt;br&gt;&lt;/h1&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="9" y="846" width="309" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-13" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://grafana.com/media/docs/loki/logo-grafana-loki.png;" vertex="1" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="243.53999999999996" y="851" width="70.46" height="70.46" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-8" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/ionicons-fill-vol-2/512/logo-docker-128.png" vertex="1" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="14.997058823529187" y="856" width="28" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="z4DHmxEM3Tl0a3bXThNu-6" source="JDIFeVL52Srhtq6o-eQG-14" target="JDIFeVL52Srhtq6o-eQG-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-14" value="&lt;h1 data-mx-given-colors=&quot;{&amp;quot;color&amp;quot;:&amp;quot;rgb(0, 0, 0)&amp;quot;,&amp;quot;background-color&amp;quot;:&amp;quot;rgb(255, 255, 255)&amp;quot;}&quot; style=&quot;forced-color-adjust: none; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237)); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-align: left; background-color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); margin-top: 0px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; font-size: 25px;&quot;&gt;Loki Logging&lt;/span&gt;&lt;/h1&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="67.54" y="859" width="176" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-15" value="" style="group" vertex="1" connectable="0" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="26" y="695" width="298" height="127" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-16" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-15">
+          <mxGeometry y="1.3229166666666667" width="298" height="125.67708333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-17" value="" style="image;html=1;image=img/lib/clip_art/general/Full_Folder_128x128.png" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-15">
+          <mxGeometry x="-3.835616438356164" y="1.1238938053097345" width="19.178082191780817" height="25.287610619469024" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-18" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Docker Bind Mount&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-15">
+          <mxGeometry x="30.683420693300437" y="1.1238938053097345" width="191.6874598070739" height="33.716814159292035" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-19" value="Paths" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-15">
+          <mxGeometry x="15.340687846109" y="32.5929203539823" width="269" height="56.29245022123894" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-20" value="&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;/etc/loki&lt;/font&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-19">
+          <mxGeometry y="26" width="269" height="25.796875" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-21" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-19">
+          <mxGeometry y="51.796875" width="269" height="4.495575221238938" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-23" value="" style="group" vertex="1" connectable="0" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="49" y="553" width="200" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-24" value="Docker Bridged Network&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;b&gt;Loki&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-23">
+          <mxGeometry x="-22" width="222" height="117" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-25" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.internet_gateway;fillColor=#F58536;gradientColor=none;" vertex="1" parent="JDIFeVL52Srhtq6o-eQG-23">
+          <mxGeometry x="48" y="4" width="23" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.041;entryY=0.489;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="z4DHmxEM3Tl0a3bXThNu-6" source="JDIFeVL52Srhtq6o-eQG-1" target="z4DHmxEM3Tl0a3bXThNu-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-46" y="1031" />
+              <mxPoint x="-46" y="612" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.194;entryY=0.466;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="z4DHmxEM3Tl0a3bXThNu-6" source="z4DHmxEM3Tl0a3bXThNu-53" target="z4DHmxEM3Tl0a3bXThNu-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.207;entryY=0.488;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="z4DHmxEM3Tl0a3bXThNu-6" source="Yx0Jhr5HA7XJ-aeyqh2g-31" target="z4DHmxEM3Tl0a3bXThNu-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="776" y="408" />
+              <mxPoint x="451" y="408" />
+              <mxPoint x="451" y="611" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JDIFeVL52Srhtq6o-eQG-32" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Airflow Logs:&lt;/b&gt; Loki collects and stores logs from the Apache Airflow DAGs, providing insights into the status of data processing &lt;br&gt;tasks. It allows real-time tracking of task execution and failures, making it easier to debug any issues.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;FastAPI Logs:&lt;/b&gt; Loki also captures logs from the FastAPI server, allowing you to monitor requests, errors, and API interactions. This ensures that any issues with the API layer are tracked efficiently.&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="z4DHmxEM3Tl0a3bXThNu-6">
+          <mxGeometry x="29" y="923" width="274" height="270" as="geometry" />
         </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-64" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-2549" y="-458" width="184" height="136" as="geometry" />
