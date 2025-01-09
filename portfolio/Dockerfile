@@ -1,6 +1,6 @@
 FROM python:3.12-bookworm
 
-RUN ["pip", "install", "fastapi[standard]", "requests", "cachetools", "python-dotenv"]
+RUN ["pip", "install", "fastapi[standard]", "requests", "cachetools", "python-dotenv", "loki-logger-handler"]
 
 WORKDIR /app
 

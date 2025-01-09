@@ -34,6 +34,7 @@ cache = TTLCache(maxsize=15, ttl=180)
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
+    start_time = time.time()
     client_ip = request.client.host
     method = request.method
     path = request.url.path
@@ -43,14 +44,14 @@ async def log_requests(request: Request, call_next):
         body = await request.body()
         body = body.decode("utf-8") if body else "empty"
     except Exception:
-        body = body.decode("utf-8") if body else "empty"
-        
+        body = "Body could not be parsed"
 
     response = await call_next(request) 
 
     response_time = time.time() - start_time    
     status_code = response.status_code
 
+    timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(start_time))
     log_string = f"[{timestamp}] | Method: {method} | Path: {path} | Query Params: {query_params} | Body: {body} | Client IP: {client_ip} | User-Agent: {user_agent} | Status Code: {status_code} | Response Time: {response_time:.2f}s"
     logging.info(log_string)
     
