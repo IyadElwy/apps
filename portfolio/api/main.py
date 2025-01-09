@@ -1,5 +1,6 @@
 import logging
 import time
+import uuid
 
 import requests
 from cachetools import TTLCache
@@ -36,47 +37,57 @@ cache = TTLCache(maxsize=15, ttl=180)
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
+    unique_request_id = str(uuid.uuid4())
     start_time = time.time()
-    client_ip = request.client.host
     method = request.method
     path = request.url.path
     query_params = dict(request.query_params)
-    user_agent = request.headers.get("user-agent", "unknown")
     try:
         body = await request.body()
         body = body.decode("utf-8") if body else "empty"
     except Exception:
         body = "Body could not be parsed"
 
+    log_string = f"{unique_request_id}: {method} | {path} {query_params} - IN PROGRESS | Body: {body}"
+    logger.info(log_string)
+    request.state.unique_request_id = unique_request_id
+
     response = await call_next(request)
 
     response_time = time.time() - start_time
     status_code = response.status_code
-
-    timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(start_time))
-    log_string = f"[{timestamp}] | Method: {method} | Path: {path} | Query Params: {query_params} | Body: {body} | Client IP: {client_ip} | User-Agent: {user_agent} | Status Code: {status_code} | Response Time: {response_time:.2f}s"
-    logging.info(log_string)
+    log_string = f"{unique_request_id}: {method} | {path} {query_params} - {status_code} | Body: {body} | Response Time: {response_time:.2f}s"
+    logger.info(log_string)
 
     return response
 
 
 @app.post("/cmd")
-def cmd(command_body: CommandBody):
+def cmd(command_body: CommandBody, request: Request):
+    logger.info(f"{request.state.unique_request_id}: command {command_body.command}")
     res = requests.post(
         "http://portfolio-vm-1:5003/cmd",
         json={"command": command_body.command},
         headers={"Content-type": "application/json"},
     )
-    res.raise_for_status()
+    try:
+        res.raise_for_status()
+    except Exception as e:
+        logger.critical(f"{request.state.unique_request_id}: Error: {e}", exc_info=True)
 
     return res.json()
 
 
 @app.post("/initdag")
-def init_dag(movie: Movie):
+def init_dag(movie: Movie, request: Request):
+    logger.info(f"{request.state.unique_request_id}: movie request -> {movie.title}")
     cache_result = cache.get(movie.title)
     if cache_result:
+        logger.info(
+            f"{request.state.unique_request_id}: cache hit for -> {movie.title}"
+        )
         return {"result": "movie request is already being processed"}
+    logger.info(f"{request.state.unique_request_id}: cache miss for -> {movie.title}")
     cache[movie.title] = "processing"
     res = requests.post(
         "https://airflow.iyadelwy.xyz/api/v1/dags/movie_retriever_dag/dagRuns",
@@ -84,7 +95,10 @@ def init_dag(movie: Movie):
         json={"conf": {"title": movie.title}},
         auth=HTTPBasicAuth(config["AIRFLOW_USER"], config["AIRFLOW_PASSWORD"]),
     )
-    res.raise_for_status()
+    try:
+        res.raise_for_status()
+    except Exception as e:
+        logger.critical(f"{request.state.unique_request_id}: Error: {e}", exc_info=True)
 
     return res.json()
 
