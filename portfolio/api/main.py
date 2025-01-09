@@ -4,6 +4,9 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from requests.auth import HTTPBasicAuth
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
 
 
 class CommandBody(BaseModel):
@@ -40,7 +43,7 @@ def init_dag(movie: Movie):
         "https://airflow.iyadelwy.xyz/api/v1/dags/movie_retriever_dag/dagRuns",
         headers={"Content-Type": "application/json"},
         json={"conf": {"title": movie.title}},
-        auth=HTTPBasicAuth("iyadelwy", "airflow"),
+        auth=HTTPBasicAuth(config["AIRFLOW_USER"], config["AIRFLOW_PASSWORD"]),
     )
     res.raise_for_status()
 
