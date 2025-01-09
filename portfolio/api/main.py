@@ -75,7 +75,11 @@ def cmd(command_body: CommandBody, request: Request):
     except Exception as e:
         logger.critical(f"{request.state.unique_request_id}: Error: {e}", exc_info=True)
 
-    return res.json()
+    command_result = res.json()
+    logger.info(
+        f"{request.state.unique_request_id}: command={command_body.command} | {command_result=}"
+    )
+    return command_result
 
 
 @app.post("/initdag")
