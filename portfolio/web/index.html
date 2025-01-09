@@ -31,6 +31,16 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    <script>
+        // Check if the screen width is less than a certain value (e.g., 768px, which is common for mobile)
+        if (window.innerWidth <= 768) {
+            alert("Sorry, some features are only available on a laptop or desktop computer.");
+            document.body.style.display = 'none';  // Hide all content on mobile devices
+        }
+    </script>
+
+
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
