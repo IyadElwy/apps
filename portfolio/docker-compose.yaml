@@ -7,12 +7,14 @@ services:
     ports:
       - "5003:5003"
     networks:
+      - loki
       - portfolio-network-external
       - portfolio-network-internal
   vm:
     build: ./vm-container/
     image: portfolio-vm-image
     networks:
+      - loki
       - portfolio-network-internal
     volumes:
       - /mnt/storage-server0/sda3/portfolio/data/db.sqlite:/appdata/db.sqlite
@@ -23,3 +25,5 @@ networks:
   portfolio-network-internal:
     driver: bridge
     internal: true
+  loki:
+    external: true
