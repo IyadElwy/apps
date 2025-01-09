@@ -17,12 +17,12 @@ parser.add_argument(
     "-t",
     "--title",
     required=True,
-    help='Ex. movies -t "Fight Club"',
+    help='movies -t "Fight Club"',
 )
 parser.add_argument(
     "-o",
     "--output",
-    help="""Comma separated string of values. Ex. movies -o "id,title,year,rated,released,runtime,genre,director,writer,actors,plot,language""",
+    help="""movies -o "id,title,etc.""",
 )
 
 parser.add_argument(
