@@ -1,0 +1,40 @@
+services:
+
+  loki:
+    image: grafana/loki:latest
+    volumes:
+      - /mnt/storage-server0/sda3/grafana/loki:/etc/loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/loki-config.yaml
+    networks:
+      - loki
+
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - /var/log:/var/log
+      - /mnt/storage-server0/sda3/grafana/promtail:/etc/promtail
+    ports:
+      - "1514:1514"
+    command: -config.file=/etc/promtail/promtail-config.yaml
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:latest
+    user: "1000"
+    volumes:
+      - /mnt/storage-server0/sda3/grafana/grafana:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - grafana
+      - loki
+
+
+networks:
+  grafana:
+    driver: bridge
+  loki:
+    driver: bridge
