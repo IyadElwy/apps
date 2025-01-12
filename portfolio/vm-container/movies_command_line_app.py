@@ -87,7 +87,7 @@ if res is None:
         f'Movie with title "{args.title}" not found in Database. Running Dag to extract, transform and then load movie into Database. Check again in a minute.'
     )
     res_dag_req = requests.post(
-        "http://portfolio-api-1:5003/initdag",
+        "http://portfolio_api:5003/initdag",
         json={"title": args.title},
         headers={"Content-type": "application/json"},
     )

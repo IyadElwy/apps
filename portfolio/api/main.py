@@ -17,7 +17,7 @@ config = dotenv_values(".env")
 logger = logging.getLogger("web-api-logger")
 logger.setLevel(logging.DEBUG)
 custom_logging_handler = LokiLoggerHandler(
-    url="http://loki:3100/loki/api/v1/push",
+    url="http://grafana_loki:3100/loki/api/v1/push",
     labels={"application": "portfolio", "component": "web-api"},
 )
 logger.addHandler(custom_logging_handler)
@@ -66,7 +66,7 @@ async def log_requests(request: Request, call_next):
 def cmd(command_body: CommandBody, request: Request):
     logger.info(f"{request.state.unique_request_id}: command {command_body.command}")
     res = requests.post(
-        "http://portfolio-vm-1:5003/cmd",
+        "http://portfolio_vm:5003/cmd",
         json={"command": command_body.command},
         headers={"Content-type": "application/json"},
     )
@@ -105,6 +105,20 @@ def init_dag(movie: Movie, request: Request):
         logger.critical(f"{request.state.unique_request_id}: Error: {e}", exc_info=True)
 
     return res.json()
+
+
+@app.get("/health")
+def health():
+    res = requests.post(
+        "http://portfolio_vm:5003/cmd",
+        json={"command": "ls"},
+        headers={"Content-type": "application/json"},
+    )
+    res.raise_for_status()
+
+    command_result = res.json()
+
+    return command_result
 
 
 app.mount("/", StaticFiles(directory="../web", html=True), name="static")

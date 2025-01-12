@@ -32,14 +32,6 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
 
-    <script>
-        // Check if the screen width is less than a certain value (e.g., 768px, which is common for mobile)
-        if (window.innerWidth <= 768) {
-            alert("This portfolio website is the frontend to a complex software system. To enjoy all features you will need a wider screen. A laptop or desktop computer would be the recommended choice.");
-            document.body.style.display = 'none';  // Hide all content on mobile devices
-        }
-    </script>
-
 
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
@@ -86,15 +78,36 @@
                 </div>
 
                 <!-- New Column (Added content) -->
-                <div class="col-lg-6 text-center text-lg-left">
+                <div id="terminal_div" class="col-lg-6 text-center text-lg-left">
                     <div class="container">
                         <div class="position-relative d-flex align-items-center justify-content-center">
                             <div id="myTerminal" style="width: 1000px; height: 500px;"></div>
                             <script src="js/customTerminal.js"></script>
                         </div>
                     </div>
-
                 </div>
+
+                <script>
+                    // Function to check screen width and toggle terminal visibility
+                    function toggleTerminalVisibility() {
+                        const terminalDiv = document.getElementById("terminal_div");
+
+                        if (window.innerWidth > 768) {
+                            terminalDiv.style.display = "block"; // Show terminal
+                        } else {
+                            terminalDiv.style.display = "none"; // Hide terminal
+                            // Optional: Display a message to users on smaller screens
+                        }
+                    }
+
+                    // Run on initial load
+                    toggleTerminalVisibility();
+
+                    // Add event listener for screen resizing
+                    window.addEventListener("resize", toggleTerminalVisibility);
+                </script>
+
+
             </div>
         </div>
     </div>
