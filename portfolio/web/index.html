@@ -27,6 +27,36 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
 
+    <style>
+        /* Ensure no white space or horizontal scrolling */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
+        }
+
+        /* Make terminal responsive */
+        #terminal_div,
+        #myTerminal {
+            width: 100%;
+            /* Set width to 100% of the container */
+            max-width: 100%;
+            /* Prevent overflowing the parent */
+            box-sizing: border-box;
+            /* Include padding and border in width calculation */
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            #terminal_div {
+                display: none;
+                /* Hide the terminal on small screens */
+            }
+        }
+    </style>
 
 </head>
 
@@ -63,22 +93,24 @@
                 <!-- First Column (Existing content) -->
                 <div class="col-lg-6 text-center text-lg-left">
                     <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">
+                    <h1 class="display-3 text-uppercase text-primary mb-2"
+                        style="-webkit-text-stroke: 1px #ffffff; color: #000000; text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);">
                         Iyad Elwy
                     </h1>
                     <h3 class="text-white font-weight-normal mb-3">I do</h3>
                     <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
                     <div class="typed-text d-none">Data Engineering, DevOps, Cloud, Infrastructure</div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <a href="/assets/Resume_2025_en.pdf" class="btn btn-outline-light mr-3">Download CV
-                            (English)</a>
-                        <a href="/assets/Lebenslauf_2025_de.pdf" class="btn btn-outline-light mr-3">Download CV
-                            (German)</a>
-                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+                    <a href="/assets/Resume_2025_en.pdf" class="btn btn-outline-light mr-3">Download CV
+                        (English)</a>
+                    <a href="/assets/Lebenslauf_2025_de.pdf" class="btn btn-outline-light mr-3">Download CV
+                        (German)</a>
                 </div>
 
                 <!-- New Column (Added content) -->
                 <div id="terminal_div" class="col-lg-6 text-center text-lg-left">
+                    <br>
                     <div class="container">
                         <div class="position-relative d-flex align-items-center justify-content-center">
                             <div id="myTerminal" style="width: 1000px; height: 500px;"></div>
@@ -87,30 +119,37 @@
                     </div>
                 </div>
 
-                <script>
-                    // Function to check screen width and toggle terminal visibility
-                    function toggleTerminalVisibility() {
-                        const terminalDiv = document.getElementById("terminal_div");
-
-                        if (window.innerWidth > 768) {
-                            terminalDiv.style.display = "block"; // Show terminal
-                        } else {
-                            terminalDiv.style.display = "none"; // Hide terminal
-                            // Optional: Display a message to users on smaller screens
-                        }
-                    }
-
-                    // Run on initial load
-                    toggleTerminalVisibility();
-
-                    // Add event listener for screen resizing
-                    window.addEventListener("resize", toggleTerminalVisibility);
-                </script>
-
-
             </div>
+
+            <div id="smallScreenMessage" class="text-center text-grey mt-3" style="display: none;">
+                <p>Open on PC to view the awesome integrated terminal feature running on a container orchestaror on my
+                    own 3-node home cluster :)</p>
+            </div>
+            <script>
+                // Function to check screen width and toggle terminal visibility
+                function toggleTerminalVisibility() {
+                    const terminalDiv = document.getElementById("terminal_div");
+
+                    if (window.innerWidth > 768) {
+                        terminalDiv.style.display = "block"; // Show terminal
+                        smallScreenMessage.style.display = "none"; // Show message
+                    } else {
+                        terminalDiv.style.display = "none"; // Hide terminal
+                        smallScreenMessage.style.display = "block"; // Show message
+                    }
+                }
+
+                // Run on initial load
+                toggleTerminalVisibility();
+
+                // Add event listener for screen resizing
+                window.addEventListener("resize", toggleTerminalVisibility);
+            </script>
+
         </div>
     </div>
+
+
 
 
     <!-- Header End -->
