@@ -12,11 +12,6 @@
             <mxRectangle x="-2213" y="-753" width="130" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ZNPZncndaHSOltbfOLUV-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="z4DHmxEM3Tl0a3bXThNu-6" source="z4DHmxEM3Tl0a3bXThNu-17">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1292.89453125" y="626.5" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="z4DHmxEM3Tl0a3bXThNu-17" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.patternFillRect;fillStyle=diagRev;step=5;fillStrokeWidth=0.2;fillStrokeColor=#dddddd;fillColor=#33FFFF;" parent="z4DHmxEM3Tl0a3bXThNu-6" vertex="1">
           <mxGeometry x="1074.5" y="24" width="200.5" height="1205" as="geometry" />
         </mxCell>
