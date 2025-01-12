@@ -7,6 +7,7 @@ services:
       - grafana_loki
       - network-external
       - network-internal
+    entrypoint: ["sh", "-c", "curl -f http://portfolio_vm:5003/health && python3 run.py"]
     deploy:
       replicas: 2
       resources:
