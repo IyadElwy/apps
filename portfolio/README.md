@@ -76,4 +76,42 @@ FastAPI Logs: Loki also captures logs from the FastAPI server, allowing you to m
 
 
 
-`At the moment the project runs on one machine with the potential for horizontal scaling using container orchestrators like docker swarm or K8s and reverse proxies like ngnix for load balancing.`
+## Docker Swarm Integration:
+
+Docker Swarm orchestrates the deployment, scaling, and management of services within a cluster. The introduction of Swarm brings several improvements to the system, including:
+
+### Service Scaling and High Availability:
+
+Services like the FastAPI application and Grafana are now deployed with Swarm, enabling easy horizontal scaling. For example, increasing replicas of the FastAPI service can help handle more traffic, and Swarm automatically distributes the load. Even the airflow dags run on the swarm cluster which ensures that the dags run on servers which have resources to handle the operations fast and efficient.
+
+Swarm ensures that services are always available, automatically replacing any failed containers, which improves overall system reliability and uptime.
+Service Dependencies:
+
+### Load Balancing with Swarm:
+
+Swarm's built-in load balancing automatically distributes incoming traffic across replicas of services like FastAPI and Grafana, optimizing resource usage and improving performance.
+
+
+### Automatic Service Discovery:
+
+Services deployed within Swarm can discover and communicate with each other without the need for manual IP management. For example, Grafana automatically connects to Loki without requiring explicit IP addresses, as Swarm handles the internal DNS resolution.
+Rolling Updates:
+
+### Swarm-Specific Networking Enhancements:
+Swarm Overlay Networks:
+Swarm uses overlay networks to facilitate communication between containers running on different nodes within the Swarm cluster. This allows for improved scalability and isolation of services.
+The internal network (portfolio-network-internal) in Swarm now spans across multiple nodes, ensuring seamless communication even as the system scales.
+
+
+### Security and Resource Constraints:
+
+Swarm allows setting CPU and memory limits per service (e.g., Grafana, Loki), ensuring that no service overconsumes resources, maintaining system stability.
+You can now deploy services with specific resource constraints, preventing resource contention between services.
+Service Replication and Fault Tolerance:
+
+Swarm automatically ensures that the desired number of replicas for each service is maintained. If a container fails or a node goes down, Swarm reschedules tasks on other available nodes, ensuring high availability and fault tolerance.
+
+### Health Checks and Restart Policies:
+Service Health Checks:
+Docker Swarm supports health checks, and this is critical in the current architecture to ensure that services like the api and vm are only running when fully operational.
+

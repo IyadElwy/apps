@@ -9,7 +9,7 @@ from requests.exceptions import HTTPError
 parser = argparse.ArgumentParser(
     prog="Movie Command-Line Utility",
     description="""Using this tool you will be able to retrieve data about movies.\n\n""",
-    epilog='Check out the "Portfolio Projects" section to access the project\'sGitHub Page.',
+    epilog='Check out the "Portfolio Projects" section to access the project\'s GitHub Page.',
 )
 
 
