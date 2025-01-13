@@ -4,7 +4,6 @@ services:
     ports:
       - "5003:5003"
     networks:
-      - grafana_loki
       - network-external
       - network-internal
     entrypoint: ["sh", "-c", "curl -f http://portfolio_vm:5003/health && python3 run.py"]
@@ -53,5 +52,3 @@ networks:
   network-internal:
     driver: overlay
     internal: true
-  grafana_loki:
-    external: true

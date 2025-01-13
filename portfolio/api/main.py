@@ -17,7 +17,7 @@ config = dotenv_values(".env")
 logger = logging.getLogger("web-api-logger")
 logger.setLevel(logging.DEBUG)
 custom_logging_handler = LokiLoggerHandler(
-    url="http://grafana_loki:3100/loki/api/v1/push",
+    url="https://loki.iyadelwy.xyz/loki/api/v1/push",
     labels={"application": "portfolio", "component": "web-api"},
 )
 logger.addHandler(custom_logging_handler)
