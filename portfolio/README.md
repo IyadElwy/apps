@@ -1,8 +1,9 @@
 # Interactive Portfolio Website with built-in Live Terminal
+![portfolio](https://github.com/user-attachments/assets/8a41a2ae-5e8e-48b7-a7fb-47ae9e1a528b)
 
-![portfolio](https://github.com/user-attachments/assets/e1802e65-79e1-4ee3-ab16-f5da49d34ee0)
 
 # Architecture
+
 
 
 ## Components
