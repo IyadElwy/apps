@@ -25,7 +25,17 @@
 
         }
     }, {
-        greetings: 'Welcome to the Movie data interactive terminal tool. Use the "movies --help" command to get started.\n\nThis environment was carefully designed to ensure robustness and security by integrating docker containers, networks and volumes as well as cloudflare VPN, Apache Airflow and linux shell environments.\n\nTo know more about how this environment was built check out the "Portfolio Projects" section down bellow to access the project\'s GitHub Page.\n\n\n',
+        greetings: `
+              ░▒▓██████████████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓████████▓▒░       ░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓█▓▒░         
+              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░         
+              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░         
+              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░        ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░         
+              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░         
+              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░         
+              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░   ░▒▓██▓▒░  ░▒▓█▓▒░▒▓████████▓▒░       ░▒▓██████▓▒░░▒▓████████▓▒░▒▓█▓▒░         
+
+                                                                              
+Welcome to the Movie data interactive terminal tool. Use the "movies --help" command to get started.\n\nThis environment was carefully designed to ensure robustness and security by running it on my own self-hosted Kubernetes Multi-Node cluster, running in my kitchen :)\n\nTo know more about how this environment was built check out the "Portfolio Projects" section down bellow to access the project\'s GitHub Page.\n\nTo get started type "movies --help"\n\n\n`,
         prompt: '> '
     });
     

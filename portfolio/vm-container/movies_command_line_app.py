@@ -1,8 +1,8 @@
 import argparse
-import sqlite3
 import sys
 
 import pandas as pd
+import psycopg2
 import requests
 from requests.exceptions import HTTPError
 
@@ -64,22 +64,23 @@ if args.output:
             sys.exit(1)
         select_statement += f"{val}, "
     select_statement = select_statement[:-2]  # remove last comma and space
-    select_statement += " FROM Movies WHERE normalized_title=?"
+    select_statement += " FROM Movies WHERE normalized_title=%s"
 else:
     output_variables = "id,title,year,rated,released,runtime,genre,director,writer,actors,plot,language".split(
         ","
     )
-    select_statement = "SELECT id, title, year, rated, released, runtime, genre, director, writer, actors, plot, language FROM MOVIES WHERE normalized_title=?"
+    select_statement = "SELECT id, title, year, rated, released, runtime, genre, director, writer, actors, plot, language FROM MOVIES WHERE normalized_title=%s"
 
 
-con = sqlite3.connect("/appdata/db.sqlite")
+con = psycopg2.connect(
+    "postgresql://applications:interlinked@postgresql.postgres.svc.cluster.local:5432/portfolio"
+)
 cur = con.cursor()
-res = cur.execute(
+cur.execute(
     select_statement,
     (args.title.lower().replace(" ", ""),),
 )
-res = res.fetchone()
-con.close()
+res = cur.fetchone()
 
 
 if res is None:
@@ -87,7 +88,7 @@ if res is None:
         f'Movie with title "{args.title}" not found in Database. Running Dag to extract, transform and then load movie into Database. Check again in a minute.'
     )
     res_dag_req = requests.post(
-        "http://portfolio_api:5003/initdag",
+        "http://portfolio-api:5003/initdag",
         json={"title": args.title},
         headers={"Content-type": "application/json"},
     )
@@ -101,3 +102,5 @@ else:
         print(df)
     elif args.format == "tuple":
         print(res)
+
+con.close()

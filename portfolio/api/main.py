@@ -66,7 +66,7 @@ async def log_requests(request: Request, call_next):
 def cmd(command_body: CommandBody, request: Request):
     logger.info(f"{request.state.unique_request_id}: command {command_body.command}")
     res = requests.post(
-        "http://portfolio_vm:5003/cmd",
+        "http://portfolio-vm:5003/cmd",
         json={"command": command_body.command},
         headers={"Content-type": "application/json"},
     )
@@ -94,7 +94,7 @@ def init_dag(movie: Movie, request: Request):
     logger.info(f"{request.state.unique_request_id}: cache miss for -> {movie.title}")
     cache[movie.title] = "processing"
     res = requests.post(
-        "https://airflow.iyadelwy.xyz/api/v1/dags/movie_retriever_dag/dagRuns",
+        "http://airflow-webserver.airflow.svc.cluster.local:8080/api/v1/dags/movie_retriever_dag/dagRuns",
         headers={"Content-Type": "application/json"},
         json={"conf": {"title": movie.title}},
         auth=HTTPBasicAuth(config["AIRFLOW_USER"], config["AIRFLOW_PASSWORD"]),
@@ -110,7 +110,7 @@ def init_dag(movie: Movie, request: Request):
 @app.get("/health")
 def health():
     res = requests.post(
-        "http://portfolio_vm:5003/cmd",
+        "http://portfolio-vm:5003/cmd",
         json={"command": "ls"},
         headers={"Content-type": "application/json"},
     )

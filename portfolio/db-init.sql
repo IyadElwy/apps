@@ -1,7 +1,9 @@
+-- CREATE USER applications WITH PASSWORD 'interlinked';
+-- CREATE DATABASE portfolio OWNER applications;
 CREATE TABLE Movies(
-    id INTEGER PRIMARY KEY,
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     normalized_title TEXT UNIQUE,
-    title TEXT UNIQUE,
+    title TEXT,
     year TEXT,
     rated TEXT,
     released TEXT,
@@ -12,4 +14,4 @@ CREATE TABLE Movies(
     actors TEXT,
     plot TEXT,
     language TEXT
-)
+);

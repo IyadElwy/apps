@@ -1,11 +1,11 @@
 import argparse
 import json
 import logging
-import sqlite3
 import sys
 import uuid
 from urllib.parse import quote
 
+import psycopg2
 import requests
 from dotenv import dotenv_values
 from loki_logger_handler.loki_logger_handler import LokiLoggerHandler
@@ -45,7 +45,7 @@ if not args.title:
     logger.error(f"{unique_id}-movie-extraction: Title not specified")
     raise Exception("title must be specified")
 else:
-    base_url += f"&t={quote(args.title)}"
+    base_url += f"&t={quote(args.title[1:])}"
 
 logger.info(f"{unique_id}-movie-extraction: Requesting Movie data: {base_url}")
 response = requests.get(base_url)
@@ -159,14 +159,16 @@ logger.info(f"{unique_id}-movie-loading: Temp data decoded successfully")
 
 
 try:
-    con = sqlite3.connect("/app/appdata/db.sqlite")
+    con = psycopg2.connect(
+        "postgresql://applications:interlinked@postgresql.postgres.svc.cluster.local:5432/portfolio"
+    )
     cur = con.cursor()
-
     cur.execute(
-        "INSERT OR IGNORE INTO Movies(title, normalized_title,\
+        "INSERT INTO Movies(title, normalized_title,\
             year,rated,released,runtime,\
                 genre,director,writer,actors,plot,language)\
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)\
+                 ON CONFLICT (normalized_title) DO NOTHING",
         (
             movie.Title,
             movie.Title.lower().replace(" ", ""),

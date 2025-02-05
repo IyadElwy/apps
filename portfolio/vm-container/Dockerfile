@@ -1,6 +1,6 @@
 FROM python:3.12-bookworm
 
-RUN ["pip", "install", "fastapi[standard]", "pandas", "requests"]
+RUN ["pip", "install", "fastapi[standard]", "pandas", "requests", "psycopg2"]
 
 WORKDIR /app
 COPY ./api ./api
@@ -25,6 +25,7 @@ RUN ["cp", "/bin/pwd", "/home/narrator/bin"]
 RUN ["cp", "/bin/awk", "/home/narrator/bin"]
 RUN ["cp", "/bin/sed", "/home/narrator/bin"]
 RUN ["cp", "/bin/stat", "/home/narrator/bin"]
+RUN ["cp", "/bin/whoami", "/home/narrator/bin/whoami"]
 
 RUN ["usermod", "-s", "/home/narrator/bin/rbash", "narrator"]
 COPY ./movies.sh /home/narrator/bin/movies
