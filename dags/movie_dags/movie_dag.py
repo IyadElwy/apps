@@ -23,19 +23,19 @@ with DAG(
         ],
         volume_mounts=[
             k8s.V1VolumeMount(
-                name="movie_processing_temp_volume", mount_path="/app/temp_data"
+                name="movie-processing-temp-volume", mount_path="/app/temp_data"
             )
         ],
         volumes=[
             k8s.V1Volume(
-                name="movie_processing_temp_volume",
+                name="movie-processing-temp-volume",
                 persistent_volume_claim=k8s.V1PersistentVolumeClaim(
-                    metadata=k8s.V1ObjectMeta(name="movie_processing_temp_pvc"),
+                    metadata=k8s.V1ObjectMeta(name="movie-processing-temp-pvc"),
                     spec=k8s.V1PersistentVolumeClaimSpec(
                         access_modes=["ReadWriteOnce"],
                         resources=k8s.V1ResourceRequirements(requests="100Mi"),
                         storage_class_name="longhorn",
-                        volume_name="movie_processing_temp_volume",
+                        volume_name="movie-processing-temp-volume",
                     ),
                 ),
             ),
