@@ -7,6 +7,7 @@ from kubernetes.client import models as k8s
 with DAG(
     dag_id="movie_retriever_dag",
     start_date=datetime.datetime(2025, 1, 4),
+    catchup=False,
 ):
     extraction_pod = KubernetesPodOperator(
         task_id="movie-extract-transform-load",
