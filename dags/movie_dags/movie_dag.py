@@ -1,31 +1,43 @@
 import datetime
 
 from airflow import DAG
-from airflow.providers.docker.operators.docker_swarm import DockerOperator
-from docker.types import Mount
+from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperator
+from kubernetes.client import models as k8s
 
 with DAG(
     dag_id="movie_retriever_dag",
     start_date=datetime.datetime(2025, 1, 4),
 ):
-    extraction_container = DockerOperator(
-        task_id="movie-extract_transform_load",
+    extraction_pod = KubernetesPodOperator(
+        namespace="portfolio",
         image="iyadelwy/movie-extract_transform_load-image:latest",
-        command="python ./extract_transform_load.py -t \"{{ dag_run.conf['title'] }}\"",
-        mount_tmp_dir=False,
-        mounts=[
-            Mount(
-                target="/app/temp_data",
-                source="/mnt/storage-server0/sda3/airflow/tmp",
-                type="bind",
-            ),
-            Mount(
-                target="/app/appdata/db.sqlite",
-                source="/mnt/storage-server0/sda3/portfolio/data/db.sqlite",
-                type="bind",
+        name="movie-extract-transform-load-pod",
+        cmds=[
+            "python",
+            "./extract_transform_load.py",
+        ],
+        arguments=[
+            "-t \"{{ dag_run.conf['title'] }}\"",
+        ],
+        volume_mounts=[
+            k8s.V1VolumeMount(
+                name="movie_processing_temp_volume", mount_path="/app/temp_data"
+            )
+        ],
+        volumes=[
+            k8s.V1Volume(
+                name="movie_processing_temp_volume",
+                persistent_volume_claim=k8s.V1PersistentVolumeClaim(
+                    metadata=k8s.V1ObjectMeta(name="movie_processing_temp_pvc"),
+                    spec=k8s.V1PersistentVolumeClaimSpec(
+                        access_modes=["ReadWriteOnce"],
+                        resources=k8s.V1ResourceRequirements(requests="100Mi"),
+                        storage_class_name="longhorn",
+                        volume_name="movie_processing_temp_volume",
+                    ),
+                ),
             ),
         ],
-        auto_remove=True,
     )
 
-    extraction_container
+    extraction_pod
