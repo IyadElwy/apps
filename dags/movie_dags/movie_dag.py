@@ -29,14 +29,8 @@ with DAG(
         volumes=[
             k8s.V1Volume(
                 name="movie-processing-temp-volume",
-                persistent_volume_claim=k8s.V1PersistentVolumeClaim(
-                    metadata=k8s.V1ObjectMeta(name="movie-processing-temp-pvc"),
-                    spec=k8s.V1PersistentVolumeClaimSpec(
-                        access_modes=["ReadWriteOnce"],
-                        resources=k8s.V1ResourceRequirements(requests="100Mi"),
-                        storage_class_name="longhorn",
-                        volume_name="movie-processing-temp-volume",
-                    ),
+                persistent_volume_claim=k8s.V1PersistentVolumeClaimVolumeSource(
+                    claim_name="movie-processing-temp-pvc"
                 ),
             ),
         ],
