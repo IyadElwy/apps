@@ -9,6 +9,7 @@ with DAG(
     start_date=datetime.datetime(2025, 1, 4),
 ):
     extraction_pod = KubernetesPodOperator(
+        task_id="movie-extract-transform-load",
         namespace="portfolio",
         image="iyadelwy/movie-extract_transform_load-image:latest",
         name="movie-extract-transform-load-pod",
