@@ -1,28 +1,33 @@
 import datetime
 
 from airflow import DAG
-from airflow.providers.docker.operators.docker_swarm import DockerOperator
-from docker.types import Mount
+from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperator
+from kubernetes.client import models as k8s
 
 with DAG(
     dag_id="movie_cleaner_dag",
-    start_date=datetime.datetime(2025, 1, 12),
-    schedule="0 9 * * *",
+    start_date=datetime.datetime(2025, 1, 4),
+    catchup=False,
 ):
-    clean_up_temp_directory = DockerOperator(
+    extraction_pod = KubernetesPodOperator(
         task_id="clean-up-temp-directory",
-        image="alpine:latest",
-        command=("sh -c 'mkdir -p /app/temp_data && rm -rf /app/temp_data/*'"),
-        user="1000",
-        mount_tmp_dir=False,
-        mounts=[
-            Mount(
-                target="/app/temp_data",
-                source="/mnt/storage-server0/sda3/airflow/tmp",
-                type="bind",
+        namespace="portfolio",
+        image="bitnami/minideb:latest",
+        name="cleaner-pod",
+        cmds=["tail", "-f", "/dev/null"],
+        volume_mounts=[
+            k8s.V1VolumeMount(
+                name="movie-processing-temp-volume", mount_path="/app/temp_data"
+            )
+        ],
+        volumes=[
+            k8s.V1Volume(
+                name="movie-processing-temp-volume",
+                persistent_volume_claim=k8s.V1PersistentVolumeClaimVolumeSource(
+                    claim_name="movie-processing-temp-pvc"
+                ),
             ),
         ],
-        auto_remove=True,
     )
 
-    clean_up_temp_directory
+    extraction_pod
