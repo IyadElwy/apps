@@ -10,6 +10,7 @@ import requests
 from dotenv import dotenv_values
 from loki_logger_handler.loki_logger_handler import LokiLoggerHandler
 from pydantic import BaseModel
+from requests.auth import HTTPBasicAuth
 
 config = dotenv_values(".env")
 
@@ -193,3 +194,11 @@ except Exception as e:
     raise e
 
 logger.info(f"{unique_id}-movie-loading: Movie loaded successfully: {movie.Title}")
+
+res = requests.post(
+    "http://airflow-webserver.airflow.svc.cluster.local:8080/api/v1/dags/movie_cleaner_dag/dagRuns",
+    headers={"Content-Type": "application/json"},
+    json={"conf": {"file_prefix": unique_id}},
+    auth=HTTPBasicAuth(config["AIRFLOW_USER"], config["AIRFLOW_PASSWORD"]),
+)
+res.raise_for_status()
