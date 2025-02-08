@@ -13,8 +13,8 @@ with DAG(
         task_id="clean-up-temp-directory",
         namespace="portfolio",
         image="bitnami/minideb:latest",
-        cmds=["bash -c \"/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*\""],
-        arguments=[""],
+        cmds=["bash", "-c"],
+        arguments=["/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*"],
         volume_mounts=[
             k8s.V1VolumeMount(
                 name="movie-processing-temp-volume", mount_path="/dag_temp_data"
