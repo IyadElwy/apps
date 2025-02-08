@@ -5,12 +5,12 @@ from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperato
 from kubernetes.client import models as k8s
 
 with DAG(
-    dag_id="movie_cleaner_dag_",
+    dag_id="movie_cleaner_dag",
     start_date=datetime.datetime(2025, 1, 4),
     catchup=False,
 ):
     extraction_pod = KubernetesPodOperator(
-        task_id="clean-up-temp-directory_",
+        task_id="clean-up-temp-directory",
         namespace="portfolio",
         image="bitnami/minideb:latest",
         cmds=["bash -c \"/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*\""],
