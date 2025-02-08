@@ -5,17 +5,18 @@ from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperato
 from kubernetes.client import models as k8s
 
 with DAG(
-    dag_id="movie_cleaner_dag",
+    dag_id="movie_cleaner_dag_",
     start_date=datetime.datetime(2025, 1, 4),
     catchup=False,
 ):
     extraction_pod = KubernetesPodOperator(
-        task_id="clean-up-temp-directory",
+        task_id="clean-up-temp-directory_",
         namespace="portfolio",
         image="bitnami/minideb:latest",
         name="cleaner-pod",
-        cmds=["rm"],
-        arguments=["/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*"],
+        cmds=["tail", "-f", "/dev/null"],
+        # cmds=["rm"],
+        # arguments=["/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*"],
         volume_mounts=[
             k8s.V1VolumeMount(
                 name="movie-processing-temp-volume", mount_path="/dag_temp_data"
