@@ -26,16 +26,13 @@
         }
     }, {
         greetings: `
-              ░▒▓██████████████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓████████▓▒░       ░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓█▓▒░         
-              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░         
-              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░         
-              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░        ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░         
-              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░         
-              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░         
-              ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░   ░▒▓██▓▒░  ░▒▓█▓▒░▒▓████████▓▒░       ░▒▓██████▓▒░░▒▓████████▓▒░▒▓█▓▒░         
-
-                                                                              
-Welcome to the Movie data interactive terminal tool. Use the "movies --help" command to get started.\n\nThis environment was carefully designed to ensure robustness and security by running it on my own self-hosted Kubernetes Multi-Node cluster, running in my kitchen :)\n\nTo know more about how this environment was built check out the "Portfolio Projects" section down bellow to access the project\'s GitHub Page.\n\nTo get started type "movies --help"\n\n\n`,
+    ▗▖   ▄ ▄   ▄ ▗▞▀▚▖    ▗▖ ▗▖▄▄▄▄  ▄▄▄     ▗▄▄▖  ▄▄▄     ▐▌
+    ▐▌   ▄ █   █ ▐▛▀▀▘    ▐▌▗▞▘█  █ ▀▄▄      ▐▌ ▐▌█   █    ▐▌
+    ▐▌   █  ▀▄▀  ▝▚▄▄▖    ▐▛▚▖ █▀▀█ ▄▄▄▀     ▐▛▀▘ ▀▄▄▄▀ ▗▞▀▜▌
+    ▐▙▄▄▖█                ▐▌ ▐▌█▄▄█          ▐▌         ▝▚▄▟▌
+                                                                 
+                                                                                                                           
+You are currently in a Live Terminal Session running in a K8s Pod.\n\nThis environment was carefully designed to ensure robustness and security by running it on my own self-hosted Kubernetes Multi-Node cluster, running in my kitchen :)\n\nTo know more about how this environment was built check out the "Portfolio Projects" section bellow to access the project\'s GitHub.\n\nI also wrote a small Movie data CLI Tool and installed it into the pod so you don't get bored here.\nTo get started type "movies --help"\n\n\n`,
         prompt: '> '
     });
     
