@@ -17,7 +17,7 @@ config = dotenv_values(".env")
 logger = logging.getLogger("web-api-logger")
 logger.setLevel(logging.DEBUG)
 custom_logging_handler = LokiLoggerHandler(
-    url="https://loki.iyadelwy.xyz/loki/api/v1/push",
+    url="http://loki.loki.svc.cluster.local:3100/loki/api/v1/push",
     labels={"application": "portfolio", "component": "web-api"},
 )
 logger.addHandler(custom_logging_handler)
@@ -48,7 +48,7 @@ async def log_requests(request: Request, call_next):
     except Exception:
         body = "Body could not be parsed"
 
-    log_string = f"{unique_request_id}: {method} | {path} {query_params} - IN PROGRESS | Body: {body}"
+    log_string = f"{request.client.host} | {unique_request_id}: {method} | {path} {query_params} - IN PROGRESS | Body: {body}"
     logger.info(log_string)
     request.state.unique_request_id = unique_request_id
 
@@ -56,7 +56,7 @@ async def log_requests(request: Request, call_next):
 
     response_time = time.time() - start_time
     status_code = response.status_code
-    log_string = f"{unique_request_id}: {method} | {path} {query_params} - {status_code} | Body: {body} | Response Time: {response_time:.2f}s"
+    log_string = f"{request.client.host} | {unique_request_id}: {method} | {path} {query_params} - {status_code} | Body: {body} | Response Time: {response_time:.2f}s"
     logger.info(log_string)
 
     return response
@@ -64,7 +64,9 @@ async def log_requests(request: Request, call_next):
 
 @app.post("/cmd")
 def cmd(command_body: CommandBody, request: Request):
-    logger.info(f"{request.state.unique_request_id}: command {command_body.command}")
+    logger.info(
+        f"{request.client.host} | {request.state.unique_request_id}: command {command_body.command}"
+    )
     res = requests.post(
         "http://portfolio-vm:5003/cmd",
         json={"command": command_body.command},
@@ -73,25 +75,32 @@ def cmd(command_body: CommandBody, request: Request):
     try:
         res.raise_for_status()
     except Exception as e:
-        logger.critical(f"{request.state.unique_request_id}: Error: {e}", exc_info=True)
+        logger.critical(
+            f"{request.client.host} | {request.state.unique_request_id}: Error: {e}",
+            exc_info=True,
+        )
 
     command_result = res.json()
     logger.info(
-        f"{request.state.unique_request_id}: command={command_body.command} | {command_result=}"
+        f"{request.client.host} | {request.state.unique_request_id}: command={command_body.command} | {command_result=}"
     )
     return command_result
 
 
 @app.post("/initdag")
 def init_dag(movie: Movie, request: Request):
-    logger.info(f"{request.state.unique_request_id}: movie request -> {movie.title}")
+    logger.info(
+        f"{request.client.host} | {request.state.unique_request_id}: movie request -> {movie.title}"
+    )
     cache_result = cache.get(movie.title)
     if cache_result:
         logger.info(
             f"{request.state.unique_request_id}: cache hit for -> {movie.title}"
         )
         return {"result": "movie request is already being processed"}
-    logger.info(f"{request.state.unique_request_id}: cache miss for -> {movie.title}")
+    logger.info(
+        f"{request.client.host} | {request.state.unique_request_id}: cache miss for -> {movie.title}"
+    )
     cache[movie.title] = "processing"
     res = requests.post(
         "http://airflow-webserver.airflow.svc.cluster.local:8080/api/v1/dags/movie_retriever_dag/dagRuns",
@@ -102,7 +111,10 @@ def init_dag(movie: Movie, request: Request):
     try:
         res.raise_for_status()
     except Exception as e:
-        logger.critical(f"{request.state.unique_request_id}: Error: {e}", exc_info=True)
+        logger.critical(
+            f"{request.client.host} | {request.state.unique_request_id}: Error: {e}",
+            exc_info=True,
+        )
 
     return res.json()
 
