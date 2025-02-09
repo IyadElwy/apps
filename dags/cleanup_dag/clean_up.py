@@ -9,12 +9,13 @@ with DAG(
     start_date=datetime.datetime(2025, 1, 4),
     catchup=False,
 ):
-    extraction_pod = KubernetesPodOperator(
+    clean_up_pod = KubernetesPodOperator(
         task_id="clean-up-temp-directory",
         namespace="portfolio",
         image="bitnami/minideb:latest",
-        cmds=["bash", "-c"],
-        arguments=["/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*"],
+        # cmds=["bash", "-c"],
+        # arguments=["/dag_temp_data/{{ dag_run.conf['file_prefix'] }}*"],
+        cmds=["tail", "-f", "/dev/null"],
         volume_mounts=[
             k8s.V1VolumeMount(
                 name="movie-processing-temp-volume", mount_path="/dag_temp_data"
@@ -30,4 +31,4 @@ with DAG(
         ],
     )
 
-    extraction_pod
+    clean_up_pod
