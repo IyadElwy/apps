@@ -18,7 +18,7 @@ config = dotenv_values(".env")
 logger = logging.getLogger("dag-logger")
 logger.setLevel(logging.DEBUG)
 custom_logging_handler = LokiLoggerHandler(
-    url="https://loki.iyadelwy.xyz/loki/api/v1/push",
+    url="http://loki.loki.svc.cluster.local:3100/loki/api/v1/push",
     labels={
         "application": "portfolio",
         "component": "airflow_dag",
@@ -80,7 +80,7 @@ logger.info(f"{unique_id}-movie-extraction: Temp data saved to: {file_name}")
 logger = logging.getLogger("dag-logger")
 logger.setLevel(logging.DEBUG)
 custom_logging_handler = LokiLoggerHandler(
-    url="https://loki.iyadelwy.xyz/loki/api/v1/push",
+    url="http://loki.loki.svc.cluster.local:3100/loki/api/v1/push",
     labels={
         "application": "portfolio",
         "component": "airflow-dag",
@@ -133,7 +133,7 @@ logger.info(f"{unique_id}-movie-transformation: Temp data saved to: {file_name}"
 logger = logging.getLogger("dag-logger")
 logger.setLevel(logging.DEBUG)
 custom_logging_handler = LokiLoggerHandler(
-    url="https://loki.iyadelwy.xyz/loki/api/v1/push",
+    url="http://loki.loki.svc.cluster.local:3100/loki/api/v1/push",
     labels={
         "application": "portfolio",
         "component": "airflow-dag",
